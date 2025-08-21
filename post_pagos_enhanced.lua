@@ -1,8 +1,25 @@
 -- Enhanced post_pagos.lua with detailed metrics collection
 wrk.method = "POST"
-wrk.body   = '{"Header":"pP4FGrZEnrKaia6kSgXcvdscM9Ua3VkvH1ZZhh+LV0uGaaMhYhBygg3BtNGDBOlsRxfxNkEiaOyovr9iEaDYzZZBbTc9Y8uNsbjbIFYJTdo3c4G0jJi7GgtGsRLuYCAM/y+vjR7OeiuvWQGoQa0SDhkwm1az88pe87r5iME1YGoTTNBQIrc1nssKtIBnptIKPgKPS03AreXSdIlF0lgSjnizu9kYg4Fa+cfnDBzERybnjRwASFTZiYmbxAU5uxKk","InputData":"eoU/tLdp/uZZ6oAwyd8Hip+51JDbYA2mmozfd6xgZd+rpFpHO3pSuDuJ89tMPgcSnZsSSyiy82/e7pObseyKRqNZD/Z/A5Pzrgdx06OXuZ85qcxquXSmpDGjKT2E2JcUXpT/tbeWyPwg1sGIBsD2jIEJYbrDe+yVBhQFrT/l0epYf4DiEoe/9B3EsHLFYI4Vdw3jv5/OIElsqUlK7vhAhHkXIKL1KKg7F4/9FlY7md2Bf/lPIuiOVWl9n5JlA4m/6TVlL4FbfQG2/8MjLBEZig=="}'
-wrk.headers["Content-Type"] = "application/json"
-wrk.headers["Authorization"] = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYXNlV2ViQXBpU3ViamVjdCIsImp0aSI6IjAzOTZjZjdjLTNiMzYtNGY1Zi05ODM1LTViY2YwZTIzMjNhMiIsImlhdCI6IjIwLzgvMjAyNSAyMDozMTowMiIsImVtcHJlc2EiOiJQQUdPQk9MIiwidXN1YXJpbyI6IjlRRXFYWGM2Wmt0R0Y1WGZrd0hnM0E9PSIsInBhc3N3b3JkIjoiR2lzR0NCejFkTzl4aDBxQ0ZtdWQ1VUdXSVozQ1ZhMkI5akRLd09BK1VocFRDc2pVLzFRVkFEWmlDNVJvUDVFWiIsImV4cCI6MTc1NTcyNTQ2MiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdC8iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0LyJ9.2klu-EksD9f0OlZQ7clVwQK3Oaa7eoy5Ggu07Jywmh0"
+wrk.path   = "/api/pagos/ProcessMessage"
+wrk.body   = '{"Header":"pP4FGrZEnrKaia6kSgXcva34C44GnftYMvAPP66nnzOMIlr7muTFWYTXSP5AmfiRPZO08cCGO5U5tzTmA4sheqK7DZwPCdhKz4VyrqbghmGUSy5bRrrMECB9HRuAQkgKWwqQkcwFvQigrbTNF4e+NGFjLW2aigJ+88i2ydtzqunPHGCEPyQVg8V6Wti4RQ2ptdN64uqf8wxZcZ4LKYAKgdNCN/w50pVGWOyia2i3Hc/KvposQ5FenkEsHcLsEwEG","InputData":"wGN3pmdjlx/4+0hXDisYnGsSR5rO7/wvko5LEA1EvlRoRrmYMc7G4PBPl+w0CTHQ9QnB5YL0aC18FKyRwHMHpA=="}'
+
+wrk.headers = {
+  ["Host"] = "ws.pagosbolivia.com.bo:8443",
+  ["User-Agent"] = "Mozilla/5.0 (X11; Linux x86_64; rv:143.0) Gecko/20100101 Firefox/143.0",
+  ["Accept"] = "application/json, text/plain, */*",
+  ["Accept-Language"] = "es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3",
+  ["Accept-Encoding"] = "gzip, deflate, br",
+  ["Authorization"] = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYXNlV2ViQXBpU3ViamVjdCIsImp0aSI6IjY1ZGVkY2U2LWY0OTQtNGVkNy05MzI4LTg0ZGRhM2FkOGJiNCIsImlhdCI6IjIxLzgvMjAyNSAwMjo0NDo0NyIsImVtcHJlc2EiOiJQQUdPQk9MIiwidXN1YXJpbyI6IjlRRXFYWGM2Wmt0R0Y1WGZrd0hnM0E9PSIsInBhc3N3b3JkIjoiR2lzR0NCejFkTzl4aDBxQ0ZtdWQ1VUdXSVozQ1ZhMkI5akRLd09BK1VocFRDc2pVLzFRVkFEWmlDNVJvUDVFWiIsImV4cCI6MTc1NTc0Nzg4NywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdC8iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0LyJ9.gFF7TBBOVvijonS54LEW9OGJaUUDE50B2SG6PCkXUrc",
+  ["Content-Type"] = "application/json",
+  ["Origin"] = "https://pagosbolivia.com.bo",
+  ["Referer"] = "https://pagosbolivia.com.bo/",
+  ["Sec-Fetch-Dest"] = "empty",
+  ["Sec-Fetch-Mode"] = "cors",
+  ["Sec-Fetch-Site"] = "same-site",
+  ["Priority"] = "u=0",
+  ["Te"] = "trailers"
+}
+
 
 -- Metrics collection
 local responses = {}
